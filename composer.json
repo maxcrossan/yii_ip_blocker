@@ -10,15 +10,14 @@
         }
     ],
     "require": {
-        "yiisoft/yii": "^1"
+        "yiisoft/yii": "1.*"
     },
     "require-dev": {
-        "yiisoft/yii": "^1"
+        "yiisoft/yii": "1.*"
     },
     "autoload": {
         "psr-4": {
             "Crossan\\": "src/"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
