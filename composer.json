@@ -19,6 +19,5 @@
         "psr-4": {
             "Crossan\\": "src/"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
