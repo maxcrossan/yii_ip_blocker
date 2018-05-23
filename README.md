@@ -1,7 +1,7 @@
 IP Blocker Component for Yii
 ============================
 
-Will block and logout any users not listed in a whitelist 
+This will block and logout any users with IP addresses not listed in the whitelist
 
 ## Installation
 
