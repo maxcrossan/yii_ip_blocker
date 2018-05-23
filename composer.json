@@ -1,0 +1,23 @@
+{
+    "name": "maxcrossan/yii_ip_blocker",
+    "description": "Will block and logout any users not listed in the whitelist",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Max Crossan",
+            "email": "max@crossan.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii": "^1"
+    },
+    "require-dev": {
+        "yiisoft/yii": "^1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Crossan\\": "src/"
+        }
+    }
+}
