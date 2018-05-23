@@ -19,7 +19,7 @@ Configure the component and preload it in protected/config/main.php
     'components'=>array(
         'ip-blocker' => array(
             'class' => Crossan\IPBlocker::class,
-            //Expression to validate on - should return true if validation is required
+            //Expression to validate on (should return true if validation is required)
             'validateOn' => '!Yii::app()->user->isGuest',
             //{ip} will be replaced
             'blockedMessage' => "Access to this system is blocked from your IP: {ip}.",
