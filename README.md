@@ -5,12 +5,10 @@ Will block and logout any users not listed in a whitelist
 
 ## Installation
 
-Add the following to your composer file and run `php composer.phar update`
+Run the Composer command to install the latest stable version of the IPBlocker
 
-```json
-    "require": {
-        "maxcrossan/yii_ip_blocker": "dev-master"
-    },
+```bash
+    php composer.phar require maxcrossan/yii_ip_blocker
 ```
 
 Configure the component and preload it in protected/config/main.php
