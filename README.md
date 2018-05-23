@@ -5,7 +5,7 @@ Will block and logout any users not listed in a whitelist
 
 ## Installation
 
-Run the Composer command to install the latest stable version of the IPBlocker
+Run the Composer command to install the latest stable version of IPBlocker
 
 ```bash
     php composer.phar require maxcrossan/yii_ip_blocker
