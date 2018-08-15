@@ -23,6 +23,10 @@ Configure the component and preload it in protected/config/main.php
             'validateOn' => '!Yii::app()->user->isGuest',
             //{ip} will be replaced
             'blockedMessage' => "Access to this system is blocked from your IP: {ip}.",
+            // Network ranges can be specified as:
+            // 1. Wildcard format:     1.2.3.*
+            // 2. CIDR format:         1.2.3/24  OR  1.2.3.4/255.255.255.0
+            // 3. Start-End IP format: 1.2.3.0-1.2.3.255
             'whitelistedIPs' => array(
                 ':1', '127.0.0.1', //Localhost
                 '123.123.123.123', //Office
