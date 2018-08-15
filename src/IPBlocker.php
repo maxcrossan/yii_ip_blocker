@@ -27,11 +27,10 @@ class IPBlocker extends CApplicationComponent
     public function init()
     {
         $this->_ipAddress = Yii::app()->request->userHostAddress;
-        $this->_ipAddress = '1.2.3.0';
         $this->_checkIP = $this->evaluateExpression($this->validateOn);
 
         if($this->_checkIP && !$this->_canAccess()) {
-//            yii::app()->user->logout();
+            yii::app()->user->logout();
             throw new CHttpException(403, str_replace('{ip}', $this->_ipAddress, $this->blockedMessage));
         }
     }
