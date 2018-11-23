@@ -27,14 +27,17 @@ class IPBlocker extends CApplicationComponent
      */
     public function init()
     {
-        $this->_ipAddress     = Yii::app()->request->userHostAddress;
-        $this->_checkIP       = $this->evaluateExpression($this->validateOn);
-        if($this->whitelistArraySupplier)
-            $this->whitelistedIPs = $this->evaluateExpression($this->whitelistArraySupplier);
+        $this->_checkIP = $this->evaluateExpression($this->validateOn);
 
-        if($this->_checkIP && !$this->_canAccess()) {
-            yii::app()->user->logout();
-            throw new CHttpException(403, str_replace('{ip}', $this->_ipAddress, $this->blockedMessage));
+        if($this->_checkIP) {
+            $this->_ipAddress = Yii::app()->request->userHostAddress;
+            if ($this->whitelistArraySupplier) {
+                $this->whitelistedIPs = $this->evaluateExpression($this->whitelistArraySupplier);
+            }
+            if (!$this->_canAccess()) {
+                yii::app()->user->logout();
+                throw new CHttpException(403, str_replace('{ip}', $this->_ipAddress, $this->blockedMessage));
+            }
         }
     }
 
@@ -42,7 +45,7 @@ class IPBlocker extends CApplicationComponent
      * @return bool
      */
     private function _canAccess(){
-        if(!count($this->whitelistedIPs))
+        if(!count($this->whitelistedIPs)) //Allow all traffic if nothing is set
             return true;
         else if(in_array($this->_ipAddress, $this->whitelistedIPs))
             return true;
