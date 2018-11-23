@@ -30,7 +30,8 @@ Configure the component and preload it in protected/config/main.php
             'whitelistedIPs' => array(
                 ':1', '127.0.0.1', //Localhost
                 '123.123.123.123', //Office
-            )
+            ),
+            'whitelistArraySupplier' => 'Whitelist::getIPs()', //Use this to grab IPs from a method somewhere in your codebase. Will override whitelistedIPs if set.
         ),
     )
 ```

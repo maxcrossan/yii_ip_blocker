@@ -16,6 +16,7 @@ class IPBlocker extends CApplicationComponent
 
     public $validateOn = '!Yii::app()->user->isGuest';
     public $whitelistedIPs = array(':1', '127.0.0.1');
+    public $whitelistArraySupplier;
     public $blockedMessage = 'Access from {ip} is blocked.';
 
     private $_checkIP = true;
@@ -26,8 +27,10 @@ class IPBlocker extends CApplicationComponent
      */
     public function init()
     {
-        $this->_ipAddress = Yii::app()->request->userHostAddress;
-        $this->_checkIP = $this->evaluateExpression($this->validateOn);
+        $this->_ipAddress     = Yii::app()->request->userHostAddress;
+        $this->_checkIP       = $this->evaluateExpression($this->validateOn);
+        if($this->whitelistArraySupplier)
+            $this->whitelistedIPs = $this->evaluateExpression($this->whitelistArraySupplier);
 
         if($this->_checkIP && !$this->_canAccess()) {
             yii::app()->user->logout();
